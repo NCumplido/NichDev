@@ -86,7 +86,7 @@ namespace MvcMovie.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken] 
-        public async Task<IActionResult> Create([Bind("Id,Title,PostDate,Topic,Content,Votes")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,Poster,Title,PostDate,Topic,Content,Votes")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace MvcMovie.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken] //CSRF
         //ToDo: restrict what can be edited: https://rachelappel.com/2014/09/02/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,PostDate,Topic,Content,Votes")] Post post)       
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Poster,Title,PostDate,Topic,Content,Votes")] Post post)       
         {
             if (id != post.Id)
             {

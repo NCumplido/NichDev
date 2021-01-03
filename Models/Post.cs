@@ -7,6 +7,9 @@ namespace MvcMovie.Models
     public class Post
     {
         public int Id { get; set; }
+
+        public String Poster { get; set; }
+
         public string Title { get; set; }
 
         [Display(Name = "Post Date")]
