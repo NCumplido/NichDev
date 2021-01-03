@@ -20,10 +20,42 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Posts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string postTopic, string searchString)
         {
-            return View(await _context.Post.ToListAsync());
+            // Use LINQ to get list of genres.
+            IQueryable<string> topicQuery = from p in _context.Post
+                                            orderby p.Topic
+                                            select p.Topic;
+
+            var movies = from p in _context.Post
+                         select p;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(postTopic))
+            {
+                movies = movies.Where(x => x.Topic == postTopic);
+            }
+
+            var postTopicVM = new PostTopicViewModel
+            {
+                Topics = new SelectList(await topicQuery.Distinct().ToListAsync()),
+                Posts = await movies.ToListAsync()
+            };
+
+            return View(postTopicVM);
         }
+
+        /*
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+        */
 
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)

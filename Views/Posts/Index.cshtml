@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcMovie.Models.Post>
+﻿@model MvcMovie.Models.PostTopicViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,29 +9,45 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<!-- ToDo: Implement:
+                                             feature to choose what to filter( eg. topic)
+                                             Elastic Search.
+                                             Content contains search parameter/query-->
+<form asp-controller="Posts" asp-action="Index" method="get">
+    <p>
+        <select asp-for="PostTopic" asp-items="Model.Topics">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Posts[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostDate)
+                @Html.DisplayNameFor(model => model.Posts[0].PostDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Topic)
+                @Html.DisplayNameFor(model => model.Posts[0].Topic)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Content)
+                @Html.DisplayNameFor(model => model.Posts[0].Content)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Votes)
+                @Html.DisplayNameFor(model => model.Posts[0].Votes)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Posts)
         {
             <tr>
                 <td>
