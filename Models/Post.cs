@@ -10,18 +10,24 @@ namespace MvcMovie.Models
 
         public String Poster { get; set; }
 
+        [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Title { get; set; }
 
         [Display(Name = "Post Date")]
         [DataType(DataType.Date)]
+        public DateTime PostDate { get; set; } //ToDo: Set the date to the date of the post being created.
 
-        public DateTime PostDate { get; set; }
-
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [Required]
+        [StringLength(15, MinimumLength = 3)]
         public string Topic { get; set; }
 
+        [StringLength(100, MinimumLength = 3)]
+        [Required]
         public string Content{ get; set; }
 
-        //[Column(TypeName = "decimal(18, 2)")]
+        [Range(-999, 999)]
         public int Votes { get; set; }
     }
 }
