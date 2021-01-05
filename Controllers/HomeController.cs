@@ -33,17 +33,6 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        public IActionResult PHPPage()
-        {
-            return View();
-        }
-
-        public IActionResult PythonPage()
-        {
-            return View();
-        }
-
-
         public IActionResult Privacy()
         {
             return View();
