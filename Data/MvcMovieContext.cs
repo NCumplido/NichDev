@@ -10,6 +10,8 @@ namespace MvcMovie.Data
         {
         }
 
+        //ToDo: public DbSet<User> User { get; set; }
+
         public DbSet<Post> Post { get; set; }
     }
 }

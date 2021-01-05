@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Work";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Work</h1>
+
+<hr />
+
+<div>
+
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="JavascriptPage">
+        <img src="~/images/JavaScript-Logo.jpg" align=left width=200 alt=“Javascript Logo” title="Javascript Logo">
+        <h3> Javascript</h3>
+    </a>
+
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PHPPage">
+        <img src="~/images/php-logo.svg" align=middle width=200 alt=“PP Logo” title="PHP Logo">
+        <h3> PHP</h3>
+    </a>
+
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PythonPage">
+        <img src="~/images/python-logo-generic.svg" align=right width=200 alt=“Python logo” title="Python Logo">
+        <h3> Python</h3>
+    </a>
+
+</div>
+
+<hr />
+
+<div align="center">
+
+
+
+</div>
+
+<hr />
+
+<div align="right">
+
+
+
+</div>
+
+
+
