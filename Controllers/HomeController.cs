@@ -23,12 +23,7 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        public IActionResult Work()
-        {
-            return View();
-        }
-
-        public IActionResult JavascriptPage()
+        public IActionResult Games()
         {
             return View();
         }
